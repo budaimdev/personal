@@ -6,6 +6,7 @@ import { Link } from "@heroui/link";
 import { Chip } from "@heroui/chip";
 import { motion } from "framer-motion";
 import { Divider } from "@heroui/divider";
+import {siteConfig} from "@/config/site";
 
 export default function Home() {
   const fadeInUp = {
@@ -327,14 +328,8 @@ export default function Home() {
             © {new Date().getFullYear()} Michal Budai. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="#" color="foreground" className="text-default-500 hover:text-foreground">
+            <Link href={siteConfig.links.github} color="foreground" className="text-default-500 hover:text-foreground">
               GitHub
-            </Link>
-            <Link href="#" color="foreground" className="text-default-500 hover:text-foreground">
-              Twitter
-            </Link>
-            <Link href="#" color="foreground" className="text-default-500 hover:text-foreground">
-              LinkedIn
             </Link>
           </div>
         </div>

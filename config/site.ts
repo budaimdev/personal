@@ -48,8 +48,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/lahev",
-    twitter: "https://twitter.com/lahev",
+    github: "https://github.com/budaimdev",
     czechclouds: "https://czechclouds.eu",
   },
 };
