@@ -8,49 +8,48 @@ import { motion } from "framer-motion";
 import { Divider } from "@heroui/divider";
 import {siteConfig} from "@/config/site";
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const projects = [
+  {
+    title: "Terminal System Monitor",
+    description: "A lightweight, cross-platform terminal-based system monitoring tool inspired by htop. Built for performance and ease of use.",
+    tags: ["C#", ".NET 8", "Terminal UI"],
+    link: "#"
+  },
+  {
+    title: "Inventory Manager Mobile",
+    description: "Cross-platform mobile application for tracking warehouse inventory in real-time with barcode scanning support.",
+    tags: ["Flutter", "Dart", "Firebase"],
+    link: "#"
+  },
+  {
+    title: "Secure Notes App",
+    description: "Native Android application for storing encrypted notes locally. Built with modern Android architecture components.",
+    tags: ["Android", "Jetpack Compose", "Kotlin"],
+    link: "#"
+  },
+  {
+    title: "E-commerce Dashboard",
+    description: "Comprehensive admin dashboard for managing products, orders, and analytics with real-time data updates.",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    link: "#"
+  }
+];
 export default function Home() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
-  };
-
-  const staggerContainer = {
-    initial: {},
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const projects = [
-    {
-      title: "Terminal System Monitor",
-      description: "A lightweight, cross-platform terminal-based system monitoring tool inspired by htop. Built for performance and ease of use.",
-      tags: ["C#", ".NET 8", "Terminal UI"],
-      link: "#"
-    },
-    {
-      title: "Inventory Manager Mobile",
-      description: "Cross-platform mobile application for tracking warehouse inventory in real-time with barcode scanning support.",
-      tags: ["Flutter", "Dart", "Firebase"],
-      link: "#"
-    },
-    {
-      title: "Secure Notes App",
-      description: "Native Android application for storing encrypted notes locally. Built with modern Android architecture components.",
-      tags: ["Android", "Jetpack Compose", "Kotlin"],
-      link: "#"
-    },
-    {
-      title: "E-commerce Dashboard",
-      description: "Comprehensive admin dashboard for managing products, orders, and analytics with real-time data updates.",
-      tags: ["Next.js", "TypeScript", "Tailwind"],
-      link: "#"
-    }
-  ];
-
   return (
     <div className="flex flex-col gap-16 pb-8 relative overflow-x-clip">
       {/* Background Gradients */}
@@ -257,6 +256,7 @@ export default function Home() {
                     showAnchorIcon
                     href={project.link}
                     className="text-sm font-medium"
+                    isDisabled
                   >
                     View Project
                   </Link>
@@ -298,6 +298,7 @@ export default function Home() {
                     as={Link}
                     href="https://czechclouds.eu"
                     target="_blank"
+                    rel={"noopener noreferrer"}
                     color="primary"
                     size="lg"
                     className="font-bold shadow-lg"
@@ -328,7 +329,7 @@ export default function Home() {
             © {new Date().getFullYear()} Michal Budai. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href={siteConfig.links.github} color="foreground" className="text-default-500 hover:text-foreground">
+            <Link href={siteConfig.links.github} color="foreground" className="text-default-500 hover:text-foreground" isExternal={true}>
               GitHub
             </Link>
           </div>
